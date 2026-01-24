@@ -1,0 +1,33 @@
+.animated-bottom-border {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px; /* space below text for border */
+}
+
+.animated-bottom-border::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, #2c5aa4, #3b82f6, white); /* Blue to white */
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  animation: move-border 7s linear infinite;
+}
+
+@keyframes move-border {
+  0% {
+    background-position: 200% 0;
+  }
+  50% {
+    background-position: -100% 0;
+  }
+  50% {
+    background-position: 200% 0;
+  }
+  50% {
+    background-position: -100% 0;
+  }
+}
