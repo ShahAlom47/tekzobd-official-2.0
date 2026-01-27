@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import Loading from "./loading";
 import MainWrapper from "@/wrappers/MainWrapper";
 import Providers from "@/Providers/RootProvider/Providers";
-import Navbar from "@/componets/NavComponents/Navbar";
+import Navbar from "@/components/NavComponents/Navbar";
 
 
 
