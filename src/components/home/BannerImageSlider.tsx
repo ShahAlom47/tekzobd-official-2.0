@@ -77,7 +77,7 @@ const BannerImageSlider = () => {
       {/* Button Overlay */}
       <Link
         href="/shop"
-        className="btn-base rounded-full absolute md:bottom-5 bottom-3 left-1/2 -translate-x-1/2 z-20 transition-transform hover:scale-105 md:text-base text-xs"
+        className="btn-base  rounded-full absolute md:bottom-5 bottom-3 left-1/2 -translate-x-1/2 z-20 transition-transform hover:scale-105 md:text-base text-xs"
       >
         See Products
       </Link>

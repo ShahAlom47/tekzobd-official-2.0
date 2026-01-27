@@ -1,4 +1,4 @@
-/* @import "tailwindcss"; */
+@import "tailwindcss";
 @import "../style/animatedBorder.css" ;
 @import "swiper/css";
 @import "swiper/css/pagination";
@@ -65,7 +65,9 @@
 
 
 
-
+.btn-base {
+  @apply px-6 py-1 inline-flex  font-medium rounded-full mb-3 text-white bg-blue-600 hover:bg-blue-700 transition;
+} 
 
 .bb {
   border: solid red 4px;
@@ -121,4 +123,22 @@
   background-size: 10px 10px;
   background-repeat: repeat;
   color: #9eb8e0; /* dot color (Tailwind gray-300) */
+}
+
+
+.my-input {
+  background-color: transparent;
+  border-width: 1px;
+  border-color: #64748b; /* brandNeutral color */
+  border-radius: 4px; /* full rounded */
+  color: #000; /* black */
+  padding: 0.15rem 0.91rem; /* px-3 py-2 equivalent */
+  outline: none;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+}
+
+.my-input:focus {
+  border-color: #2563eb; /* brandPrimary color */
+  box-shadow: 0 0 0 1px #2563eb;
 }

@@ -8,7 +8,7 @@ import Logo from "../CommonComponents/Logo";
 import NavLinks from "./NavLinks";
 import AuthMenu from "./AuthMenu";
 import AuthButton from "./AuthButton";
-// import GlobalSearchBox from "../CommonComponents/GlobalSearchBox";
+import GlobalSearchBox from "../CommonComponents/GlobalSearchBox";
 import SocialButtons from "../CommonComponents/SocialButton";
 import MobileNavBar from "./MobileNavbar";
 import { useUser } from "@/hooks/useUser";
@@ -59,7 +59,7 @@ const Navbar = () => {
           >
             <NavLinks></NavLinks>
           </div>
-          {/* <GlobalSearchBox></GlobalSearchBox> */}
+          <GlobalSearchBox></GlobalSearchBox>
         </div>
         {/* link and  searchbar  end  */}
 
