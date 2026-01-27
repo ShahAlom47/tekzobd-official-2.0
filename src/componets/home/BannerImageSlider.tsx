@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import SafeImage from "../CommonComponets/SafeImage";
+import SafeImage from "../CommonComponents/SafeImage";
 import { BannerType } from "@/Interfaces/bannerInterfaces";
 import bg1 from "@/assets/banner/bg-1.jpg";
 import bg2 from "@/assets/banner/bg-2.jpg";
