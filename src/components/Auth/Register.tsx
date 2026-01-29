@@ -7,10 +7,10 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { handleApiError } from "@/utils/handleApiError";
 import { RegisterUser } from "@/Interfaces/userInterfaces";
-import PrimaryButton from "@/components/PrimaryButton";
 import { registerUser } from "@/lib/allApiRequest/authRequest/authRequest";
-import PasswordInput from "@/components/PasswordInput";
-import SocialLogin from "@/components/SocialLogin";
+import PrimaryButton from "../CommonComponents/PrimaryButton";
+import PasswordInput from "../CommonComponents/PasswordInput";
+import SocialLogin from "../CommonComponents/SocialLogin";
 
 const Register: React.FC = () => {
   const router = useRouter();
