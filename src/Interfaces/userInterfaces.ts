@@ -9,14 +9,14 @@ export interface RegisterUser {
     confirmPassword?: string;
     }
 
-
+export type UserRole = 'user' | 'admin' | 'moderator' | 'editor';
 
 export interface Users {
   _id?: string | ObjectId;
   email: string; // not editable
   name: string;
   password?: string; // optional, only for password update
-  role?: string;
+  role?: UserRole;
   image?: string | null;
   phone?: string;
   address?: string;
