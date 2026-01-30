@@ -5,6 +5,7 @@ import Loading from "./loading";
 import MainWrapper from "@/wrappers/MainWrapper";
 import Providers from "@/Providers/RootProvider/Providers";
 import Navbar from "@/components/NavComponents/Navbar";
+import Footer from "@/components/CommonComponents/Footer";
 
 
 
@@ -32,7 +33,7 @@ export default function RootLayout({
                 {/* <SmartChatWidget /> */}
               </MainWrapper>
               {/* <ConditionalWrapper hideOn={["dashboard", "login"]}> */}
-                {/* <Footer /> */}
+                <Footer />
               {/* </ConditionalWrapper> */}
           </Suspense>
         </Providers>
