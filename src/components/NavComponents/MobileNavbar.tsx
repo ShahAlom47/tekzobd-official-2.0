@@ -8,9 +8,9 @@ import Logo from "../CommonComponents/Logo";
 import AuthMenu from "./AuthMenu";
 import Drawer from "../CommonComponents/Drawer";
 import AuthButton from "./AuthButton";
+import GlobalSearchBox from "../CommonComponents/GlobalSearchBox";
 // import NavCart from "./NavCart";
 // import NavWihList from "./NavWishList";
-// import GlobalSearchBox from "../CommonComponents/GlobalSearchBox";
 
 const MobileNavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +49,7 @@ const MobileNavBar = () => {
           maxHeight: openSearchBox ? "250px  " : "0px",
         }}
       >
-        {/* <GlobalSearchBox></GlobalSearchBox> */}
+        <GlobalSearchBox></GlobalSearchBox>
       </div>
 
       <Drawer
@@ -62,7 +62,7 @@ const MobileNavBar = () => {
         <div className=" gap-2 p-2 flex justify-between flex-col items-center   min-h-[92vh] ">
           <div className=" flex gap-1 items-center mt-3">
             <Logo></Logo>
-            <AuthMenu></AuthMenu>
+            {/* <AuthMenu></AuthMenu> */}
           </div>
 
           <div className="flex gap-3 flex-col items-start justify-start w-full flex-1 pl-3">

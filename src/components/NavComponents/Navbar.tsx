@@ -33,7 +33,7 @@ const Navbar = () => {
       >
         <div className="max-w flex justify-between items-center gap-3 ">
           <div className=" flex-center  flex-1  gap-3 px-3 ">
-            <h1 className=" text-brandNeutral text-sm">Welcome to TekzoBD</h1>
+            <h1 className=" text-gray-500 text-xs md:text-sm">Welcome to TekzoBD</h1>
             <h1 className="text-blackDeep hidden md:inline text-sm">
               Contact: 01773133145
             </h1>
