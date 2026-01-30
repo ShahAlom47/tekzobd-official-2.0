@@ -25,7 +25,7 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
     "px-4 py-1 rounded-full font-medium flex gap-2 items-center text-normal",
     "transition-all duration-300 ease-in-out",
     "border border-brandPrimary text-brandNeutral",
-    "hover:bg-brandPrimary hover:text-white",
+    "hover:bg-blue-700 hover:text-white",
     (disabled || loading) && "opacity-60 cursor-not-allowed hover:bg-transparent hover:text-brandNeutral",
     className
   );
@@ -35,7 +35,7 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
     return (
       <Link href={href} className={baseClass}>
         {loading && (
-          <span className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin"></span>
+          <span className="w-4 h-4 bg-blue-600 border-2 border-current border-t-transparent rounded-full animate-spin"></span>
         )}
         {children}
       </Link>
