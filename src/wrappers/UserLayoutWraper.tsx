@@ -1,8 +1,8 @@
 
 "use client";
 
+import isAuth from "@/ProtectedRoute/isAuth";
 import React from "react";
-import isAuth from "../../ProtectedRoute/isAuth";
 
 const UserLayoutWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return <>{children}</>;
