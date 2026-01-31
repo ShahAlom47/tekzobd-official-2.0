@@ -53,7 +53,7 @@ const GlobalSearchBox: React.FC = () => {
         onChange={handleSearchChange}
         onKeyDown={handleKeyDown} // ✅ Now handles Enter press
         placeholder="Search products..."
-        className="w-full px-4 py-[2] bg-transparent focus:outline-none rounded-full text-black focus:ring-2 focus:ring-brandPrimary transition duration-300"
+        className="w-full px-4 py-[2] bg-transparent focus:outline-none rounded-full text-black focus:ring-2 focus:ring-blue-600 transition duration-300"
       />
 
       {/* Search Button */}

@@ -15,7 +15,7 @@ import PageHeading from "@/components/CommonComponents/PageHeading";
 const About = () => {
   return (
     <Suspense fallback={<Loading></Loading>}>
-         <div className="p-4 py-8 max-w  bb  space-y-8">
+         <div className="p-4 py-8 max-w    space-y-8">
      {/* Heading */}
   
       <Suspense fallback={<div>Loading...</div>}>
