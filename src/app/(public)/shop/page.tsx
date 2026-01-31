@@ -82,7 +82,7 @@ export default async function ShopPage({ searchParams }: Props) {
 
       {/* ✅ Mobile filter */}
       <div className="md:hidden block">
-        <MobileScreenFilteringSection />
+        {/* <MobileScreenFilteringSection /> */}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 my-6">
@@ -115,7 +115,7 @@ export default async function ShopPage({ searchParams }: Props) {
         {/* ✅ Desktop sidebar */}
         <div className="hidden md:block col-span-3 space-y-4">
           <Suspense fallback={<div>Loading filters...</div>}>
-            <ShopFilterSidebar />
+            {/* <ShopFilterSidebar /> */}
           </Suspense>
         </div>
       </div>
