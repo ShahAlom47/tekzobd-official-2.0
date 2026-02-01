@@ -25,12 +25,10 @@ import {
   clearCartItems,
 } from "@/redux/features/cartSlice/cartSlice";
 import debounce from "lodash.debounce";
-import { useGAnalytics } from "./useGAnalytics";
 
 export const useCart = () => {
   const dispatch = useAppDispatch();
   const { user } = useUser();
-  const { event } = useGAnalytics();
   const userEmail = user?.email || "";
   const reduxCartItems = useAppSelector((state) => state.cart.items);
   const itemCount = reduxCartItems.length;
