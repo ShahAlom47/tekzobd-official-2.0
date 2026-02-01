@@ -1,4 +1,5 @@
 
+import Loading from "@/app/loading";
 import PageHeading from "@/components/CommonComponents/PageHeading";
 import MobileScreenFilteringSection from "@/components/ShopComponent/MobileScreenFilteringSection";
 import ProductCountInfo from "@/components/ShopComponent/ProductCountInfo";
@@ -98,7 +99,7 @@ export default async function ShopPage({ searchParams }: Props) {
             </div>
           ) : (
             <>
-              <Suspense fallback={<div>Loading products...</div>}>
+              <Suspense fallback={<div className="text-center py-10"><Loading></Loading> Loading products...</div>}>
                 <ShopProductGrid products={products} />
               </Suspense>
 

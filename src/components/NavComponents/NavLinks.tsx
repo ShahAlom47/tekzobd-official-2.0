@@ -24,8 +24,8 @@ const NavLinks = () => {
       return pathname === "/" ? "text-brandPrimary font-semibold" : "text-blackMid hover:text-brandPrimary";
     }
     return pathname.startsWith(href)
-      ? "text-brandPrimary "
-      : "text-blackMid hover:text-brandPrimary";
+      ? "text-blue-500 font-semibold"
+      : "text-gray-500 hover:text-blue-500";
   };
 
   return (
