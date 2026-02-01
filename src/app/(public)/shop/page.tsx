@@ -115,7 +115,7 @@ export default async function ShopPage({ searchParams }: Props) {
         {/* ✅ Desktop sidebar */}
         <div className="hidden md:block col-span-3 space-y-4">
           <Suspense fallback={<div>Loading filters...</div>}>
-            {/* <ShopFilterSidebar /> */}
+            <ShopFilterSidebar />
           </Suspense>
         </div>
       </div>

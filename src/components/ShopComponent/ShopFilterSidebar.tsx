@@ -1,7 +1,11 @@
 "use client";
 
+import BrandFilter from "./BrandFilter";
 import CategoryFilter from "./CategoryFilter";
+import PriceFilter from "./PriceFilter";
+import RecentViewProducts from "./RecentViewProducts";
 import SortFilter from "./SortFiltering";
+import StockFilter from "./StockFilter";
 
 
 

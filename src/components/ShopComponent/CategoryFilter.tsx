@@ -3,7 +3,8 @@
 
 import { useCategories } from "@/hooks/useCategory";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { CategorySelect } from "../CommonComponents/CategorySelect";
+import { useMemo } from "react";
 
 const CategoryFilter = () => {
   const { categories } = useCategories();
@@ -12,23 +13,18 @@ const CategoryFilter = () => {
   const pathname = usePathname();
   const isShopPage = pathname?.includes("/shop");
 
-  // Selected category ID (null initially to avoid hydration mismatch)
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-
-  // When categories loaded or URL changes, sync category ID
-  useEffect(() => {
+  // Derive selected category ID from categories and searchParams without setState
+  const selectedId = useMemo(() => {
     if (categories.length > 0) {
       const slug = searchParams.get("category") || "";
       const category = categories.find((cat) => cat.slug === slug);
-      const currentId = category?._id?.toString() || "all-category";
-      setSelectedId(currentId);
+      return category?._id?.toString() || "all-category";
     }
+    return null;
   }, [categories, searchParams]);
 
   // Handle dropdown change
   const handleChange = (categoryId: string) => {
-    setSelectedId(categoryId);
-
     const params = new URLSearchParams(searchParams.toString());
 
     if (categoryId === "all-category") {
