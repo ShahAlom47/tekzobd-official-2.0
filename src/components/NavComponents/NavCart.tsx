@@ -63,7 +63,7 @@ const isClient = typeof window !== "undefined";
 
 
   return (
-    <div className="relative flex items-center">
+    <div className="relative flex items-center ">
       <button
         onClick={() => setIsOpen(true)}
         title="Your Cart"

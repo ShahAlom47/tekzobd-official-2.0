@@ -3,9 +3,9 @@
 import { ProductType } from "@/Interfaces/productInterfaces";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { FaHeart, FaTrashAlt } from "react-icons/fa";
-import { useWishlist } from "@/hooks/useWishlist";
-import { useUser } from "@/hooks/useUser";
+// import {  FaTrashAlt } from "react-icons/fa";
+// import { useWishlist } from "@/hooks/useWishlist";
+// import { useUser } from "@/hooks/useUser";
 import { useCart } from "@/hooks/useCart";
 import { useProductPriceManage } from "@/hooks/usePriceMange";
 import SafeImage from "../CommonComponents/SafeImage";
@@ -24,9 +24,9 @@ const ProductCard = ({
   isWishList = false,
 }: ProductCardProps) => {
   const router = useRouter();
-  const { isWishlisted, toggleWishlist, removeFromWishlist } = useWishlist();
+  // const { isWishlisted, toggleWishlist, removeFromWishlist } = useWishlist();
   const [showLoginModal, setLoginModal] = useState<boolean>(false);
-  const { user } = useUser();
+  // const { user } = useUser();
   const {addToCart}=useCart()
     const {
       originalPrice,
@@ -46,21 +46,21 @@ const ProductCard = ({
     router.push(`/shop/${item.slug}`);
   };
 
-  const handleWishlistClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
-    if (!user) {
-      setLoginModal(true);
-      return;
-    }
-    toggleWishlist(item._id.toString());
-  };
+  // const handleWishlistClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  //   e.stopPropagation();
+  //   if (!user) {
+  //     setLoginModal(true);
+  //     return;
+  //   }
+  //   toggleWishlist(item._id.toString());
+  // };
 
-  const handleRemoveFromWishlist = async (
-    e: React.MouseEvent<HTMLButtonElement>
-  ) => {
-    e.stopPropagation();
-    await removeFromWishlist(item._id.toString());
-  };
+  // const handleRemoveFromWishlist = async (
+  //   e: React.MouseEvent<HTMLButtonElement>
+  // ) => {
+  //   e.stopPropagation();
+  //   await removeFromWishlist(item._id.toString());
+  // };
 
 const handleAddToCart = async (e: React.MouseEvent<HTMLButtonElement>) => {
   e.stopPropagation();
@@ -93,7 +93,7 @@ const handleAddToCart = async (e: React.MouseEvent<HTMLButtonElement>) => {
       )}
 
       {/* ✅ Wishlist or Remove Button */}
-      {!isWishList && (
+      {/* {!isWishList && (
         <button
           onClick={handleWishlistClick}
           className="absolute top-8 right-2 z-20 group-hover:-translate-x-0 translate-x-[200%] transition-all duration-500 btn-bordered p-1 text-sm text-brandPrimary rounded-sm"
@@ -101,7 +101,7 @@ const handleAddToCart = async (e: React.MouseEvent<HTMLButtonElement>) => {
         >
           {isWishlisted(item._id.toString()) ? "❤️" : <FaHeart />}
         </button>
-      )}
+      )} */}
 
       {/* ✅ Product Image */}
       <div
@@ -181,7 +181,7 @@ const handleAddToCart = async (e: React.MouseEvent<HTMLButtonElement>) => {
        
 
           {/* ✅ Remove from Wishlist Button */}
-          {isWishList && (
+          {/* {isWishList && (
             <button
               onClick={handleRemoveFromWishlist}
               className="btn-bordered border-red-500 px-4 py-1 hover:bg-red-600  transition text-xs md:text-base h-6 flex items-center gap-1"
@@ -189,7 +189,7 @@ const handleAddToCart = async (e: React.MouseEvent<HTMLButtonElement>) => {
               <FaTrashAlt />
               <span className="hidden sm:inline">Remove</span>
             </button>
-          )}
+          )} */}
         </div>
       </div>
       <LoginMsgModal open={showLoginModal} setOpen={setLoginModal} />

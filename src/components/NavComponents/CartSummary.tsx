@@ -88,7 +88,7 @@ const CartSummary = ({ cartItems, products }: CartSummaryProps) => {
     <div className=" relative p-4  border-t mt-4 bg-white rounded shadow-sm text-black w-full  border border-brandPrimary ">
       <button
         onClick={() => setShowSummary(!showSummary)}
-        className="absolute top-0 left-1/2 btn-base rounded-none p-0 mt-0 h-4 px-4 rounded-b-lg mb-auto flex items-start text-white"
+        className="absolute top-2 left-1/2 btn-base rounded-none p-0 mt-0 h-4 px-4 rounded-b-lg mb-auto flex items-center text-white"
       >
         {showSummary ? <BiSolidDownArrow /> : <BiSolidUpArrow />}
       </button>
@@ -126,7 +126,7 @@ const CartSummary = ({ cartItems, products }: CartSummaryProps) => {
           Grand Total: TK {grandTotal.toLocaleString()}
         </p>
 
-        <button className=" btn-base" onClick={handleCheckOut}>
+        <button className=" btn-base  text-center" onClick={handleCheckOut}>
           Checkout
         </button>
       </div>
