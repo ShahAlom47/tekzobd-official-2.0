@@ -4,12 +4,12 @@ import React from "react";
 import { notFound } from "next/navigation";
 import { getSingleProductBySlug } from "@/lib/allApiRequest/productRequest/productRequest";
 import { ProductType } from "@/Interfaces/productInterfaces";
-import PageHeading from "@/components/PageHeading";
-import ProductDetailsContent from "@/components/ProductDetailsContent";
-import RelatedProducts from "@/components/RelatedProducts";
-import ReviewContent from "@/components/ReviewContent";
 
 import { generateMetadata as getProductMetadata } from "@/utils/seo/getMetaData";
+import PageHeading from "@/components/CommonComponents/PageHeading";
+import ProductDetailsContent from "@/components/ShopComponent/ProductDetailsContent";
+import ReviewContent from "@/components/ShopComponent/ReviewContent";
+import RelatedProducts from "@/components/ShopComponent/RelatedProducts";
 
 
 export { getProductMetadata as generateMetadata };

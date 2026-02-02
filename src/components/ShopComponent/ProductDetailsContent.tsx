@@ -1,23 +1,23 @@
 "use client";
 
 import { ProductType } from "@/Interfaces/productInterfaces";
-import RatingDisplay from "./ui/RatingDisplay";
 import { useEffect, useState } from "react";
 import { FaHeart } from "react-icons/fa";
-import MediaGallery from "./MediaGallery ";
 import { addToRecentView } from "@/utils/recentViewHelper";
 import RecentViewProducts from "./RecentViewProducts";
 import { useWishlist } from "@/hooks/useWishlist";
 import { useUser } from "@/hooks/useUser";
-import LoginMsgModal from "./ui/LoginMsgModal";
 import { useCart } from "@/hooks/useCart";
 import { useCartSummary } from "@/hooks/useCartSummary";
 import { CheckoutDataType } from "@/Interfaces/checkoutDataInterface";
 import { useAppDispatch } from "@/redux/hooks/reduxHook";
 import { setCheckoutData } from "@/redux/features/checkoutSlice/checkoutSlice";
 import { useRouter } from "next/navigation";
-import ColorSelect from "./ColorSelect";
 import ProductWhatsAppButton from "./ProductWhatsAppButton";
+import ColorSelect from "./ColorSelect";
+import MediaGallery from "../CommonComponents/MediaGallery ";
+import RatingDisplay from "../ui/RatingDisplay";
+import LoginMsgModal from "../ui/LoginMsgModal";
 
 interface Props {
   product: ProductType;
