@@ -83,7 +83,7 @@ export default async function ShopPage({ searchParams }: Props) {
 
       {/* ✅ Mobile filter */}
       <div className="md:hidden block">
-        {/* <MobileScreenFilteringSection /> */}
+        <MobileScreenFilteringSection />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 my-6">

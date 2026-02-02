@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import SafeImage from "../SafeImage";
 import { StaticImageData } from "next/image";
+import SafeImage from "../CommonComponents/SafeImage";
 
 type LocalOrRemoteSrc = string | StaticImageData | null | undefined;
 
