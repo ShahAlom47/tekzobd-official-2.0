@@ -70,11 +70,24 @@ export const useCart = () => {
   const addToCart = useCallback(
     async (productId: string, color?: string | null) => {
       // console.log(color);
-      event({
-        action: "add_to_cart",
-        category: "ecommerce",
-        value: 1,
-      });
+      if (typeof window !== "undefined" && window.gtag) {
+  window.gtag("event", "add_to_cart", {
+    currency: "BDT",
+    value: 1,
+    items: [
+      {
+        item_id: productId,
+        quantity: 1,
+      },
+    ],
+  });
+}
+
+      // event({
+      //   action: "add_to_cart",
+      //   category: "ecommerce",
+      //   value: 1,
+      // });
 
       const exists = reduxCartItems.find((item) => item.productId === productId);
       if (exists) {
@@ -109,7 +122,8 @@ export const useCart = () => {
         console.error(err);
       }
     },
-    [reduxCartItems, userEmail, dispatch, event]
+   [reduxCartItems, userEmail, dispatch]
+
   );
 
   // ✅ Remove from cart
