@@ -12,6 +12,7 @@ import GlobalSearchBox from "../CommonComponents/GlobalSearchBox";
 import SocialButtons from "../CommonComponents/SocialButton";
 import MobileNavBar from "./MobileNavbar";
 import { useUser } from "@/hooks/useUser";
+import NavCart from "./NavCart";
 // import Notification from "../CommonComponents/Notification";
 const Navbar = () => {
   const { user } = useUser();
@@ -72,7 +73,7 @@ const Navbar = () => {
             ''
           )}
 
-          {/* <NavCart></NavCart> */}
+          <NavCart></NavCart>
 
           <AuthMenu />
         </div>

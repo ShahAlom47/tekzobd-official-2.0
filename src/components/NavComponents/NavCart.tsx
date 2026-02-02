@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { PiShoppingCartThin } from "react-icons/pi";
-import Drawer from "./Drawer";
 import { useCart } from "@/hooks/useCart";
 import { useUser } from "@/hooks/useUser";
 import { useQuery } from "@tanstack/react-query";
@@ -10,24 +9,22 @@ import { getCartProducts } from "@/lib/allApiRequest/cartRequest/cartRequest";
 import { ProductType } from "@/Interfaces/productInterfaces";
 import Loading from "@/app/loading";
 import { queryClient } from "@/Providers/QueryProvider";
-import CartContent from "./CartContent";
-import CartSummary from "./CartSummary";
 import { BsCartDash } from "react-icons/bs";
 import { useRouter } from "next/navigation";
+import Drawer from "../CommonComponents/Drawer";
+import CartContent from "./CartContent";
+import CartSummary from "./CartSummary";
 
 const NavCart = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { itemCount, cartItems } = useCart();
   const { user } = useUser();
-  const [isClient, setIsClient] = useState(false);
   const itemIds = cartItems?.map((item) => item?.productId) || [];
   const router = useRouter();
 
+const isClient = typeof window !== "undefined";
 
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
 
   const userEmail = user?.email ?? "";
