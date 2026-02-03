@@ -207,7 +207,7 @@ if(now <= end){
             >
               {isOutOfStock
                 ? "Out of Stock"
-                : `In Stock (${user?.role ? product.stock : "Available"})`}
+                : `In Stock (${user?.role==="admin" ? product.stock : "Available"})`}
             </span>
           </div>
 
@@ -231,11 +231,11 @@ if(now <= end){
           )}
 
           {/* Actions */}
-          <div className="flex  gap-4">
+          <div className="flex items-center   gap-4">
             <button
               onClick={handleAddToCart}
               disabled={isOutOfStock}
-              className={`btn-base ${
+              className={`border bg-blue-600 rounded-full text-white px-2 pb-1 ${
                 isOutOfStock ? "opacity-50 cursor-not-allowed" : ""
               }`}
             >
@@ -244,23 +244,25 @@ if(now <= end){
             <button
               onClick={handleBuyNow}
               disabled={isOutOfStock}
-              className={`btn-base  ${
+              className={`border bg-blue-600 text-white rounded-full px-2 pb-1  ${
                 isOutOfStock ? "opacity-50 cursor-not-allowed" : ""
               }`}
             >
               Buy Now
             </button>
-            <button
+            {/* <button
               onClick={handleWishClick}
               className="btn-bordered rounded-sm p-2"
             >
               {isWishlisted(product._id.toString()) ? "❤️" : <FaHeart />}
-            </button>
+            </button> */}
+
 
             <ProductWhatsAppButton
               product={product}
               discountedPrice={hasDiscount ? discountedPrice : undefined}
             />
+
           </div>
 
           {/* Source Info */}

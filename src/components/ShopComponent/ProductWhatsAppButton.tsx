@@ -29,7 +29,7 @@ Link: ${productLink}`;
       rel="noopener noreferrer"
       className=" text-green-600 px-2 py-1 rounded-md flex items-center justify-center gap-2 hover:border border-green-700 transition"
     >
-      <IoLogoWhatsapp className="text-2xl" />
+      <IoLogoWhatsapp className="text-xl" />
     </a>
   );
 };
