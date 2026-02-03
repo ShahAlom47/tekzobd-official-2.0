@@ -1,8 +1,6 @@
 "use client";
 
 import React from "react";
-// import NavCart from "./NavCart";
-// import NavWishList from "./NavWishList";
 import useScreenInfo from "@/hooks/useScreenInfo";
 import Logo from "../CommonComponents/Logo";
 import NavLinks from "./NavLinks";
@@ -13,7 +11,6 @@ import SocialButtons from "../CommonComponents/SocialButton";
 import MobileNavBar from "./MobileNavbar";
 import { useUser } from "@/hooks/useUser";
 import NavCart from "./NavCart";
-// import Notification from "../CommonComponents/Notification";
 const Navbar = () => {
   const { user } = useUser();
   const { scrollY, scrollDirection } = useScreenInfo();
@@ -65,16 +62,7 @@ const Navbar = () => {
         {/* link and  searchbar  end  */}
 
         <div className="flex items-center justify-center gap-4   px-2 ">
-          {user?.role === "admin" ? (
-            ''
-            // <Notification></Notification> 
-          ) : (
-            // <NavWishList></NavWishList>
-            ''
-          )}
-
           <NavCart></NavCart>
-
           <AuthMenu />
         </div>
       </div>

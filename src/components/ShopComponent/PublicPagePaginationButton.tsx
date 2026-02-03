@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { MdArrowBackIos } from "react-icons/md";
 
 interface PublicPagePaginationButtonProps {
   currentPage: number;
@@ -25,14 +26,14 @@ export default function PublicPagePaginationButton({
   };
 
   return (
-    <div className="flex justify-center mt-8 gap-3 flex-wrap items-center">
+    <div className="flex justify-center mt-8 gap-2 flex-wrap items-center">
       {/* Previous Button */}
       {currentPage > 1 && (
         <Link
           href={createPageLink(currentPage - 1)}
-          className="btn-bordered rounded-sm py-2 px-2"
+               className="border border-blue-700 rounded-sm rounded-l-full px-1 py-[2px]  ml-1 hover:bg-blue-600 hover:text-indigo-50"
         >
-          Prev
+        <MdArrowBackIos className="" />
         </Link>
       )}
 
@@ -43,9 +44,9 @@ export default function PublicPagePaginationButton({
           <Link
             key={pageNum}
             href={createPageLink(pageNum)}
-            className={`btn-bordered rounded-sm py-1 px-3 ${
+            className={`border border-blue-700 rounded-sm px-2 py- text-sm  ${
               pageNum === currentPage
-                ? "bg-blue-600 text-white"
+                ? "bg-blue-600 text-white hover:bg-blue-700"
                 : "bg-white text-blue-600 hover:bg-blue-100"
             }`}
           >
@@ -58,9 +59,9 @@ export default function PublicPagePaginationButton({
       {currentPage < totalPages && (
         <Link
           href={createPageLink(currentPage + 1)}
-          className="btn-bordered rounded-sm py-2 px-2"
+          className="border border-blue-700 rounded-sm rounded-r-full px-1 py-[2px] hover:bg-blue-600 hover:text-indigo-50"
         >
-         Next
+          <MdArrowBackIos className="rotate-180  " />
         </Link>
       )}
     </div>
