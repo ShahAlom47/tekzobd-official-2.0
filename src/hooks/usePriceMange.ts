@@ -26,7 +26,7 @@ export function useProductPriceManage({
   const isOfferActive = useMemo(() => {
     if (!offer?.isActive || !offer?.startDate || !offer?.endDate) return false;
 
-    const now = Date.now();
+    const now = new Date().getTime();
     const start = new Date(offer.startDate).getTime();
     const end = new Date(offer.endDate).getTime();
 

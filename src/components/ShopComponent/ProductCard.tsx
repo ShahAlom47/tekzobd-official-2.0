@@ -172,9 +172,9 @@ const handleAddToCart = async (e: React.MouseEvent<HTMLButtonElement>) => {
           <button
             onClick={handleAddToCart}
             disabled={isOutOfStock}
-            className={`btn-bordered  md:px-2 px-2  text-xs md:text-base  transition w-fit ${
+            className={`border border-blue-600 rounded-full  hover:bg-blue-600 hover:text-white px-2   text-xs md:text-sm  transition w-fit ${
               isOutOfStock ? "cursor-not-allowed opacity-50" : ""
-            } ${isWishList ? "h-6" : "sm:h-5 md:h-6 md:pb-2"}`}
+            } ${isWishList ? "" : ""}`}
           >
             {isOutOfStock ? "Out of Stock" : "Add to Cart"}
           </button>

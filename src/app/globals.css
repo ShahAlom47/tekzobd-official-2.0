@@ -272,5 +272,5 @@
 
 
 .btn-bordered{
-  @apply px-6 py-1 inline-flex  font-medium rounded-full mb-3 text-blue-600 border-2 border-blue-600 hover:bg-blue-600 hover:text-white transition;
+  @apply px-3 pb-1  text-center  rounded-full mb-3 text-blue-600 border-2 border-blue-600 hover:bg-blue-600 hover:text-white transition;
 }
