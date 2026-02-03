@@ -77,8 +77,12 @@ const ProductDetailsContent: React.FC<Props> = ({ product }) => {
 
     const now = new Date().getTime();
     const end = new Date(offer.endDate).getTime();
-
-    return now > end; // ✅ end date পেরিয়ে গেছে কিনা
+if(now <= end){
+  if( user?.role === "admin" ){
+    return true;
+  }
+} return false;
+    
   })();
 
   console.log(isOfferExpired);
@@ -187,7 +191,7 @@ const ProductDetailsContent: React.FC<Props> = ({ product }) => {
           </div>
 
           {/* Offer  expire Alert */}
-          {isOfferExpired  && (
+          {isOfferExpired  &&  (
             <div className="p-3 mt-3 bg-yellow-100 text-yellow-800 rounded-md border border-yellow-300">
               ⚠️ Offer period for this product has expired. Please deactivate or
               update the offer.
