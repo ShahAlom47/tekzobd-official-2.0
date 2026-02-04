@@ -16,8 +16,9 @@ import bkashQR from "@/assets/image/bkashQR.jpg";
 import bkashQRinfo from "@/assets/image/bkashQRinfo.jpg";
 import PageHeading from "@/components/CommonComponents/PageHeading";
 import CustomModal from "@/components/ui/CustomModal";
-import ShippingInfoForm from "@/components/CommonComponents/ShippingInfoForm";
+import ShippingInfoForm from "@/components/CheckoutComponents/ShippingInfoForm";
 import SafeImage from "@/components/CommonComponents/SafeImage";
+import { clearCheckoutData } from "@/redux/features/checkoutSlice/checkoutSlice";
 
 const COD_EXTRA_CHARGE = 10; // Cash on Delivery extra charge
 
