@@ -87,15 +87,7 @@ const AuthMenu: React.FC = () => {
                       My Orders
                     </Link>
                   </li>
-                  <li>
-                    <Link
-                      href="/user/my-wishlist"
-                      onClick={() => setOpen(false)}
-                      className="block px-4 py-2 hover:bg-blue-400/50 transition"
-                    >
-                      My Wishlist
-                    </Link>
-                  </li>
+              
                 </>
               )}
 

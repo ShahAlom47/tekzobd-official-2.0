@@ -5,7 +5,6 @@ import { ReactNode } from "react";
 import { Toaster } from "react-hot-toast";
 import QueryProvider from "../QueryProvider";
 import ReduxProvider from "../ReduxProvider";
-// import PushNotificationInit from "@/components/wrappers/PushNotificationInit";
 
 export default function RootProvider({ children }: { children: ReactNode }) {
   return (
@@ -13,7 +12,6 @@ export default function RootProvider({ children }: { children: ReactNode }) {
       <ReduxProvider>
         <QueryProvider>
           <Toaster position="top-right" />
-          {/* <PushNotificationInit></PushNotificationInit> */}
           
           {children}
         </QueryProvider>
