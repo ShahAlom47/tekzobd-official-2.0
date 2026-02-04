@@ -4,10 +4,6 @@ import { useSelector } from "react-redux";
 import { Suspense, useState } from "react";
 import toast from "react-hot-toast";
 import { RootState } from "@/redux/store/store";
-import PageHeading from "@/components/PageHeading";
-import CustomModal from "@/components/ui/CustomModal";
-import OrderSuccessContent from "@/components/OrderSuccessContent";
-import { clearCheckoutData } from "@/redux/features/checkoutSlice/checkoutSlice";
 import { useAppDispatch } from "@/redux/hooks/reduxHook";
 import { useRouter } from "next/navigation";
 import { CheckoutDataType, ShippingInfoFormType } from "@/Interfaces/checkoutDataInterface";
@@ -18,13 +14,10 @@ import { useNotifications } from "@/hooks/useNotifications";
 
 import bkashQR from "@/assets/image/bkashQR.jpg";
 import bkashQRinfo from "@/assets/image/bkashQRinfo.jpg";
-import SafeImage from "@/components/SafeImage";
-import { useGAnalytics } from "@/hooks/useGAnalytics";
-import ShippingInfoForm from "@/components/ShippingInfoForm";
-// import { Metadata } from "next";
-// import { checkoutMetadata } from "@/utils/seo/staticMetadata";
-
-// export const metadata: Metadata = checkoutMetadata;
+import PageHeading from "@/components/CommonComponents/PageHeading";
+import CustomModal from "@/components/ui/CustomModal";
+import ShippingInfoForm from "@/components/CommonComponents/ShippingInfoForm";
+import SafeImage from "@/components/CommonComponents/SafeImage";
 
 const COD_EXTRA_CHARGE = 10; // Cash on Delivery extra charge
 
@@ -34,7 +27,6 @@ const CheckoutPage = () => {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const { user } = useUser();
-  const { event } = useGAnalytics();
   const checkoutData = useSelector(
     (state: RootState) => state.checkout.checkoutData
   );
