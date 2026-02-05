@@ -10,7 +10,6 @@ import { CheckoutDataType, ShippingInfoFormType } from "@/Interfaces/checkoutDat
 import { useCart } from "@/hooks/useCart";
 import { addOrder } from "@/lib/allApiRequest/orderRequest/orderRequest";
 import { useUser } from "@/hooks/useUser";
-import { useNotifications } from "@/hooks/useNotifications";
 
 import bkashQR from "@/assets/image/bkashQR.jpg";
 import bkashQRinfo from "@/assets/image/bkashQRinfo.jpg";
@@ -19,6 +18,7 @@ import CustomModal from "@/components/ui/CustomModal";
 import ShippingInfoForm from "@/components/CheckoutComponents/ShippingInfoForm";
 import SafeImage from "@/components/CommonComponents/SafeImage";
 import { clearCheckoutData } from "@/redux/features/checkoutSlice/checkoutSlice";
+import OrderSuccessContent from "@/components/CheckoutComponents/OrderSuccessContent";
 
 const COD_EXTRA_CHARGE = 10; // Cash on Delivery extra charge
 
@@ -35,7 +35,6 @@ const CheckoutPage = () => {
   const [successModalOpen, setSuccessModalOpen] = useState(false);
   const [finalOrder, setFinalOrder] = useState<CheckoutDataType | null>(null);
 
-  const { sendNewNotification } = useNotifications();
   const [shippingInfoErrors, setShippingInfoErrors] = useState<boolean>(false);
   const [shippingInfo, setShippingInfo] = useState<ShippingInfoFormType>({
     name: "",
@@ -128,11 +127,24 @@ const CheckoutPage = () => {
       },
     };
 
-    event({
-      action: "checkout",
-      category: "ecommerce",
-      value: 1,
-    });
+    // event({
+    //   action: "checkout",
+    //   category: "ecommerce",
+    //   value: 1,
+    // });
+if (typeof window !== "undefined" && window.gtag) {
+  window.gtag("event", "checkout", {
+    currency: "BDT",
+    value: finalOrder?.pricing?.grandTotal ?? 0,
+    items: checkoutData?.cartProducts?.map((item) => ({
+      item_id: item.productId,
+      item_name: item.productName,
+      quantity: item.quantity,
+      price: item.priceAtPurchase,
+    })),
+  });
+}
+
 
     setFinalOrder(order);
     setSuccessModalOpen(true);
@@ -152,8 +164,6 @@ const CheckoutPage = () => {
         clearCart();
         setSuccessModalOpen(false);
 
-        const insId = response?.insId;
-        await handleSendNotification(insId);
       }
     } catch (error) {
       console.error("Error placing order:", error);
@@ -161,20 +171,7 @@ const CheckoutPage = () => {
     }
   };
 
-  const handleSendNotification = async (orderId: string) => {
-    sendNewNotification({
-      title: "New Order Placed",
-      message: `Customer Name: ${finalOrder?.shippingInfo?.name}\nOrder ID: ${
-        orderId || "N/A"
-      }\nTotal Amount: ${finalOrder?.pricing?.grandTotal} BDT\nDate: ${new Date(
-        finalOrder?.meta?.checkoutAt || ""
-      ).toLocaleString()}`,
-      type: "order_placed",
-      link: `/dashboard/manageOrders/${orderId}`,
-      relatedId: orderId,
-    });
-  };
-
+ 
   if (!checkoutData) {
     return <div className="text-center py-10">No checkout data found.</div>;
   }
