@@ -312,7 +312,7 @@ if (typeof window !== "undefined" && window.gtag) {
             )}
           </div>
 
-          <button className="btn-base w-full mt-6" onClick={handleConfirmOrder}>
+          <button className="bg-blue-600 rounded-full hover:bg-blue-700 w-full mt-6 text-center text-white font-bold" onClick={handleConfirmOrder}>
             Submit
           </button>
         </div>
