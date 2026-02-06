@@ -4,6 +4,7 @@ import { ProductType } from "@/Interfaces/productInterfaces";
 import React from "react";
 import Link from "next/link";
 import HomeSecHeading from "../CommonComponents/HomeSecHeading";
+import OfferProductCard from "./OfferProductCard";
 
 type Props = {
   products: ProductType[];
