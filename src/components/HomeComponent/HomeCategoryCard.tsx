@@ -10,7 +10,7 @@ type Props = {
   key?: string;
 };
 
-const CategoryCard = ({ category, key }: Props) => {
+const HomeCategoryCard = ({ category, key }: Props) => {
   const router = useRouter();
 
   const handleClick = () => {
@@ -46,4 +46,4 @@ const CategoryCard = ({ category, key }: Props) => {
   );
 };
 
-export default CategoryCard;
+export default HomeCategoryCard;

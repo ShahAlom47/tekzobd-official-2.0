@@ -4,6 +4,7 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { CategoryType } from "@/Interfaces/categoryInterfaces";
 import { useState, useEffect } from "react";
+import HomeCategoryCard from "./HomeCategoryCard";
 
 type Props = {
   categories: CategoryType[];
