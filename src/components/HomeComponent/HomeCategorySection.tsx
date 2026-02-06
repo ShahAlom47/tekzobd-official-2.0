@@ -1,8 +1,8 @@
 // app/components/CategorySection.tsx
 import { CategoryType } from "@/Interfaces/categoryInterfaces";
 import { getAllCategories } from "@/lib/allApiRequest/categoryRequest/categoryRequest";
+import HomeSecHeading from "../CommonComponents/HomeSecHeading";
 import CategoryCarousel from "./CategoryCarousel";
-import HomeSecHeading from "../HomeSecHeading";
 
 interface CategoryPropsType {
   categories?: CategoryType[];
