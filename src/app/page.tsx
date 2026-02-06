@@ -1,6 +1,7 @@
 
 
 // import UnderConstructionBanner from "@/components/CommonComponents/UnderConstructionBanner";
+import ActiveOfferProducts from "@/components/HomeComponent/ActiveOfferProducts";
 import Banner from "@/components/HomeComponent/Banner";
 import TopRatedProducts from "@/components/HomeComponent/TopRatedProducts";
 import { CategoryType } from "@/Interfaces/categoryInterfaces";
@@ -33,6 +34,12 @@ const Home = async () => {
     <div className="flex flex-col gap-4 items-center justify-center min-h-screen py-2">
       {/* <UnderConstructionBanner /> */}
       <Banner />
+        {/* Only render if data is available, else skip section */}
+      {/* {categories.length > 0 && <CategorySection categories={categories} />} */}
+
+       {activeOfferProducts.length > 0 && (
+        <ActiveOfferProducts products={activeOfferProducts} />
+      )}
 
       {topRatedProducts.length > 0 && (
         <TopRatedProducts products={topRatedProducts} />
