@@ -1,4 +1,6 @@
 
+import OverviewContent from '@/components/Dashboard/DashOverView/OverviewContent';
+import DashPageTitle from '@/components/Dashboard/DashPageTitle';
 import React from 'react';
 
 const DashboardHome = () => {

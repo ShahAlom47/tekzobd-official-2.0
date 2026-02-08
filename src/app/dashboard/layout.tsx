@@ -1,5 +1,6 @@
-import DashboardWrapper from "@/components/wrappers/DashboardWrapper";
-import DashboardClientLayout from "@/layouts/DashboardClientLayout";
+import DashboardWrapper from "@/wrappers/DashboardWrapper";
+import DashboardClientLayout from "../../layout/DashboardClientLayout";
+
 
 export default function DashboardLayout({
   children,
