@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import DashHeading from "@/components/DashHeading";
-import DashNavbar from "@/components/DashNavbar";
 import Link from "next/link";
 import { FaHome } from "react-icons/fa";
 import { AiOutlineLogout } from "react-icons/ai";
+import DashNavbar from "@/components/Dashboard/DashCommonComponent/DashNavbar";
+import DashHeading from "@/components/Dashboard/DashCommonComponent/DashHeading";
 
 export default function DashboardClientLayout({
   children,
