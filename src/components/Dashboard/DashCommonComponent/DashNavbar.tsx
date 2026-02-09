@@ -30,7 +30,7 @@ const DashNavbar: React.FC<PropsType> = ({ isOpen }) => {
   ];
 
   return (
-    <div className="flex flex-col group gap-2 text-black">
+    <div className="flex flex-col group gap-2 text-black ">
       {navItems.map((item, index) => {
         const Icon = item.icon;
         const isActive = pathname === item.href;

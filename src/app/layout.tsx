@@ -6,6 +6,7 @@ import MainWrapper from "@/wrappers/MainWrapper";
 import Providers from "@/Providers/RootProvider/Providers";
 import Navbar from "@/components/NavComponents/Navbar";
 import Footer from "@/components/CommonComponents/Footer";
+import ConditionalWrapper from "@/wrappers/ConditionalWrapper";
 
 
 
@@ -24,17 +25,17 @@ export default function RootLayout({
       <body className="min-h-screen bg-white relative">
         <Providers>
           <Suspense fallback={<Loading />}>
-              {/* <ConditionalWrapper hideOn={["dashboard"]}> */}
+              <ConditionalWrapper hideOn={["dashboard"]}>
                 <Navbar />
-              {/* </ConditionalWrapper> */}
+              </ConditionalWrapper>
               <MainWrapper>
                 {children}
                 {/* <ScrollTopButton /> */}
                 {/* <SmartChatWidget /> */}
               </MainWrapper>
-              {/* <ConditionalWrapper hideOn={["dashboard", "login"]}> */}
+              <ConditionalWrapper hideOn={["dashboard", "login"]}>
                 <Footer />
-              {/* </ConditionalWrapper> */}
+              </ConditionalWrapper>
           </Suspense>
         </Providers>
       </body>

@@ -26,7 +26,7 @@ export default function DashboardClientLayout({
             isOpen
               ? "w-fit  px-2  "
               : "md:w-14 md:px-1 w-0  px-0 hover:w-fit hover:px-2  "
-          } duration-500 ease-in-out  flex flex-col justify-between gap-3  py-3 transition-all  text-blackLight  bg-brandPrimary bg-gradient-to-tr to-blue-500 from-brandPrimary `}
+          } duration-500 ease-in-out  flex flex-col justify-between gap-3  py-3 transition-all  text-blackLight  bg-blue-700 bg-gradient-to-tr to-blue-500 from-brandPrimary `}
         >
           <div className=" overflow-y-scroll scroll-hide h-full max-h-[75vh] space-y-1 ">
             <DashNavbar isOpen={isOpen}></DashNavbar>

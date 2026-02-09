@@ -57,6 +57,8 @@ export default async function ShopPage({ searchParams }: Props) {
       ...filters,
     });
 
+    console.log(response)
+
     if (!response.success) {
       throw new Error(response.message || "Something went wrong.");
     }

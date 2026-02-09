@@ -15,8 +15,8 @@ import { ObjectId } from "mongodb";
 import { CheckoutDataType } from "@/Interfaces/checkoutDataInterface";
 import { MdDeleteSweep } from "react-icons/md";
 import Link from "next/link";
-import OrderFilters from "@/components/OrdersFilteringSec";
-import OrderStatus from "@/components/OrderStatus";
+import OrderStatusSelect from "@/components/Dashboard/DashOrderCompnent/OrderStatus";
+import OrderFilters from "@/components/Dashboard/DashOrderCompnent/OrdersFilteringSec";
 
 const ManageOrders = () => {
   const { ConfirmModal, confirm } = useConfirm();
@@ -122,7 +122,7 @@ const ManageOrders = () => {
       deliveryMethods: paymentInfo?.method || "N/A",
       deliveryType:  shippingInfo?.deliveryMethod || "N/A",
       total: `${pricing.grandTotal.toFixed(2)} TK`,
-      status: (<OrderStatus status={meta?.orderStatus} cancelledByUser={meta?.cancelledByUser} id={order._id?.toString() || "" } />),
+      status: (<OrderStatusSelect status={meta?.orderStatus} cancelledByUser={meta?.cancelledByUser} id={order._id?.toString() || "" } />),
       date: new Date(meta.checkoutAt).toLocaleDateString("en-GB"),
       action: (
         <div className="flex gap-2 items-center">
