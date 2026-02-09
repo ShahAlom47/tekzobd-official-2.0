@@ -1,11 +1,12 @@
 "use client";
 
 import { getSingleProduct, updateProduct } from "@/lib/allApiRequest/productRequest/productRequest";
-import ProductForm from "@/components/ProductForm";
+
 import { ProductFormInput } from "@/Interfaces/productInterfaces";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import ProductForm from "@/components/ShopComponent/ProductForm";
 
 export default function EditProduct() {
   const { id } = useParams();

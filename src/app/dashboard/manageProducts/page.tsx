@@ -2,7 +2,6 @@
 
 import ErrorComponent from "@/app/error";
 import Loading from "@/app/loading";
-import DashPageTitle from "@/components/DashPageTitle";
 import { CustomTable } from "@/components/ui/CustomTable";
 import { DashPaginationButton } from "@/components/ui/DashPaginationButton";
 import { useConfirm } from "@/hooks/useConfirm";
@@ -18,10 +17,11 @@ import toast from "react-hot-toast";
 import { queryClient } from "@/Providers/QueryProvider";
 import { ObjectId } from "mongodb";
 import { ProductType } from "@/Interfaces/productInterfaces";
-import PrimaryButton from "@/components/PrimaryButton";
 import { FaPlus } from "react-icons/fa";
 import { MdDeleteSweep } from "react-icons/md";
 import { useCategories } from "@/hooks/useCategory";
+import DashPageTitle from "@/components/Dashboard/DashCommonComponent/DashPageTitle";
+import PrimaryButton from "@/components/CommonComponents/PrimaryButton";
 
 const ManageProduct = () => {
     
