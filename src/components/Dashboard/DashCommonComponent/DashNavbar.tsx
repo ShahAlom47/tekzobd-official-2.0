@@ -40,7 +40,7 @@ const DashNavbar: React.FC<PropsType> = ({ isOpen }) => {
             key={index}
             href={item.href}
             className={`  flex items-center gap-2 md:p-2 p-1  rounded-full transition-all duration-300 ease-in-out overflow-hidden ${
-              isActive ? "bg-white" : "hover:bg-white"
+              isActive ? "bg-white" : "hover:bg-white hover:text-black text-white "
             } ${isOpen ? "w-40 " : " md:w-[34px] w-0 group-hover:w-48"}`}
           >
             {Icon && <Icon className="text-lg flex-shrink-0" />}
