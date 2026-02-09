@@ -1,8 +1,6 @@
 "use client";
 
-import { CategorySelect } from "@/components/CategorySelect";
-import DashPageTitle from "@/components/DashPageTitle";
-import MediaManager from "@/components/MediaManager";
+
 import {
   MediaItem,
   ProductFormInput,
@@ -12,9 +10,12 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import toast from "react-hot-toast";
-import { SelectBrand } from "./SelectBrand";
 import ColorSelect from "./ColorSelect";
-import DiscountDisplay from "./DiscountCalculator";
+import DashPageTitle from "../Dashboard/DashCommonComponent/DashPageTitle";
+import { SelectBrand } from "../CommonComponents/SelectBrand";
+import { CategorySelect } from "../CommonComponents/CategorySelect";
+import MediaManager from "../CommonComponents/MediaManager";
+import DiscountDisplay from "../CommonComponents/DiscountCalculator";
 
 interface ProductFormProps {
   onSubmit: (data: ProductType) => Promise<{ success: boolean }>;
