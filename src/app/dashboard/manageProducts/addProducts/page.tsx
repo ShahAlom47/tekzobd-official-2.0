@@ -1,9 +1,9 @@
 "use client";
 
 import { addProduct } from "@/lib/allApiRequest/productRequest/productRequest";
-import ProductForm from "@/components/ProductForm";
 import toast from "react-hot-toast";
 import { ProductType } from "@/Interfaces/productInterfaces";
+import ProductForm from "@/components/ShopComponent/ProductForm";
 
 export default function AddProduct() {
  const handleAddProduct = async (data: ProductType): Promise<{ success: boolean }> => {
