@@ -36,12 +36,14 @@ const Home = async () => {
       {/* <UnderConstructionBanner /> */}
       <Banner />
         {/* Only render if data is available, else skip section */}
-      {categories.length > 0 && <CategorySection categories={categories} />}
+
 
        {activeOfferProducts.length > 0 && (
         <ActiveOfferProducts products={activeOfferProducts} />
       )}
+      {categories.length > 0 && <CategorySection categories={categories} />}
 
+      
       {topRatedProducts.length > 0 && (
         <TopRatedProducts products={topRatedProducts} />
       )}
