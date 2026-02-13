@@ -6,9 +6,9 @@ import { useParams } from "next/navigation";
 import { getSingleOrder } from "@/lib/allApiRequest/orderRequest/orderRequest";
 import Loading from "@/app/loading";
 import Error from "@/app/error";
-import OrderDetailsContent from "@/components/OrderDetailsContent";
 import { CheckoutDataType } from "@/Interfaces/checkoutDataInterface";
-import DashPageTitle from "@/components/DashPageTitle";
+import DashPageTitle from "@/components/Dashboard/DashCommonComponent/DashPageTitle";
+import OrderDetailsContent from "@/components/Dashboard/DashOrderCompnent/OrderDetailsContent";
 
 const OrderDetails = () => {
   const { orderId } = useParams();
