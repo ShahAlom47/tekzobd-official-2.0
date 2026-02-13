@@ -6,10 +6,7 @@ import toast from "react-hot-toast";
 import { ObjectId } from "mongodb";
 import { useQuery } from "@tanstack/react-query";
 
-import AddCategory from "@/components/AddCategory";
-import EditCategory from "@/components/EditCategory";
-import DashPageTitle from "@/components/DashPageTitle";
-import PrimaryButton from "@/components/PrimaryButton";
+
 import CustomModal from "@/components/ui/CustomModal";
 import { CustomTable } from "@/components/ui/CustomTable";
 import { DashPaginationButton } from "@/components/ui/DashPaginationButton";
@@ -21,6 +18,10 @@ import { useConfirm } from "@/hooks/useConfirm";
 import { CategoryType } from "@/Interfaces/categoryInterfaces";
 import { deleteCategory, getAllCategories } from "@/lib/allApiRequest/categoryRequest/categoryRequest";
 import { iconOptions } from "@/utils/iconOptions";
+import DashPageTitle from "@/components/Dashboard/DashCommonComponent/DashPageTitle";
+import PrimaryButton from "@/components/CommonComponents/PrimaryButton";
+import AddCategory from "@/components/CategoryComponet/AddCategory";
+import EditCategory from "@/components/CategoryComponet/EditCategory";
 
 const ManageCategory = () => {
   const { confirm, ConfirmModal } = useConfirm();
