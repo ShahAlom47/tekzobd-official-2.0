@@ -1,5 +1,5 @@
 import Loading from "@/app/loading";
-import ResetPassContent from "@/components/ResetPassContent";
+import ResetPassContent from "@/components/Auth/ResetPassContent";
 import { Suspense } from "react";
 
 export const dynamic = "force-dynamic";
