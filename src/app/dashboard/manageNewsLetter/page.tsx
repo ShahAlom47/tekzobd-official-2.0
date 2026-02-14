@@ -1,6 +1,5 @@
 "use client";
 
-import DashPageTitle from "@/components/DashPageTitle";
 import { CustomTable } from "@/components/ui/CustomTable";
 import { DashPaginationButton } from "@/components/ui/DashPaginationButton";
 import { useQuery } from "@tanstack/react-query";
@@ -17,6 +16,7 @@ import {
 import { useConfirm } from "@/hooks/useConfirm";
 import toast from "react-hot-toast";
 import { ObjectId } from "mongodb";
+import DashPageTitle from "@/components/Dashboard/DashCommonComponent/DashPageTitle";
 
 const ManageNewsletter = () => {
   const { confirm, ConfirmModal } = useConfirm();

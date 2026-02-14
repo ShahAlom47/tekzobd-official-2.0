@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 
 import { addCategory } from "@/lib/allApiRequest/categoryRequest/categoryRequest";
 import { CategoryType } from "@/Interfaces/categoryInterfaces";
+import CategoryForm from "./CategoryForm";
 
 const AddCategory: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
