@@ -1,5 +1,6 @@
 
-import PageHeading from "@/components/PageHeading";
+
+import PageHeading from "@/components/CommonComponents/PageHeading";
 import { deliveryMetadata } from "@/utils/seo/staticMetadata";
 import { Metadata } from "next";
 import React from "react";
