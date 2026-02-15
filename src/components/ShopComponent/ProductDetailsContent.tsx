@@ -82,7 +82,6 @@ if(now <= end){
     
   })();
 
-  console.log(isOfferExpired);
 
   const hasDiscount = isOfferActive && product.discount > 0;
   const originalPrice = product.price;

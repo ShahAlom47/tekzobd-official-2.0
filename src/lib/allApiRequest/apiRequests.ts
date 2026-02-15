@@ -13,8 +13,8 @@ export interface IApiResponse<T = unknown> {
 }
 
 const api = axios.create({
-  baseURL: `http://localhost:3000/api`,
-  // baseURL: `https://tekzobd.vercel.app/api`,
+  // baseURL: `http://localhost:3000/api`,
+  baseURL: `https://tekzobd.vercel.app/api`,
   // baseURL: `https://www.tekzobd.com/api`,
   withCredentials: true,
 });

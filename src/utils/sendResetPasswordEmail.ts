@@ -32,6 +32,6 @@ export const sendResetPasswordEmail = async (userEmail: string, userName: string
     <p>If you did not request this, please ignore this email.</p>
   `;
 
- const res= await sendEmail(userEmail, "Reset your password", htmlContent);
- console.log(res,"reset email res");
+ await sendEmail(userEmail, "Reset your password", htmlContent);
+//  console.log(res,"reset email res");
 };
