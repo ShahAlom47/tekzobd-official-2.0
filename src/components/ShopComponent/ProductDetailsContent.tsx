@@ -2,10 +2,8 @@
 
 import { ProductType } from "@/Interfaces/productInterfaces";
 import { useEffect, useState } from "react";
-import { FaHeart } from "react-icons/fa";
 import { addToRecentView } from "@/utils/recentViewHelper";
 import RecentViewProducts from "./RecentViewProducts";
-import { useWishlist } from "@/hooks/useWishlist";
 import { useUser } from "@/hooks/useUser";
 import { useCart } from "@/hooks/useCart";
 import { useCartSummary } from "@/hooks/useCartSummary";
@@ -24,7 +22,6 @@ interface Props {
 }
 
 const ProductDetailsContent: React.FC<Props> = ({ product }) => {
-  const { isWishlisted, toggleWishlist } = useWishlist();
   const [showLoginModal, setLoginModal] = useState<boolean>(false);
   const { user } = useUser();
   const { addToCart } = useCart();
@@ -135,13 +132,7 @@ if(now <= end){
     router.push("/checkout");
   };
 
-  const handleWishClick = () => {
-    if (!user) {
-      setLoginModal(true);
-      return;
-    }
-    toggleWishlist(product._id.toString());
-  };
+  
 
   return (
     <div className="md:grid gap-2 grid-cols-12">
@@ -250,12 +241,7 @@ if(now <= end){
             >
               Buy Now
             </button>
-            {/* <button
-              onClick={handleWishClick}
-              className="btn-bordered rounded-sm p-2"
-            >
-              {isWishlisted(product._id.toString()) ? "❤️" : <FaHeart />}
-            </button> */}
+          
 
 
             <ProductWhatsAppButton
