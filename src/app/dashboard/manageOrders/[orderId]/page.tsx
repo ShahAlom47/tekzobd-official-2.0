@@ -8,7 +8,7 @@ import Loading from "@/app/loading";
 import Error from "@/app/error";
 import { CheckoutDataType } from "@/Interfaces/checkoutDataInterface";
 import DashPageTitle from "@/components/Dashboard/DashCommonComponent/DashPageTitle";
-import OrderDetailsContent from "@/components/Dashboard/DashOrderCompnent/OrderDetailsContent";
+import OrderDetailsContent from "@/components/Dashboard/DashOrderComponents/OrderDetailsContent";
 
 const OrderDetails = () => {
   const { orderId } = useParams();

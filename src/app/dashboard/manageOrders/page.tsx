@@ -15,8 +15,8 @@ import { ObjectId } from "mongodb";
 import { CheckoutDataType } from "@/Interfaces/checkoutDataInterface";
 import { MdDeleteSweep } from "react-icons/md";
 import Link from "next/link";
-import OrderStatusSelect from "@/components/Dashboard/DashOrderCompnent/OrderStatus";
-import OrderFilters from "@/components/Dashboard/DashOrderCompnent/OrdersFilteringSec";
+import OrderStatusSelect from "@/components/Dashboard/DashOrderComponents/OrderStatus";
+import OrderFilters from "@/components/Dashboard/DashOrderComponents/OrdersFilteringSec";
 
 const ManageOrders = () => {
   const { ConfirmModal, confirm } = useConfirm();
@@ -60,6 +60,7 @@ const ManageOrders = () => {
     },
     refetchOnWindowFocus: false,
   });
+  console.log(orderRes)
 
   const orderData = (orderRes?.data as CheckoutDataType[]) || [];
   const totalPages = orderRes?.totalPages || 1;
