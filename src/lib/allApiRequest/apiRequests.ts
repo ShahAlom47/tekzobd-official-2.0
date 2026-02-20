@@ -15,7 +15,7 @@ export interface IApiResponse<T = unknown> {
 const api = axios.create({
   // baseURL: `http://localhost:3000/api`,
   // baseURL: `https://tekzobd-official-2-0.vercel.app/api`,
-  baseURL: `${process.env.BASE_URL}/api`,
+  baseURL: `${process.env.NEXT_PUBLIC_BASE_URL}/api`,
   
   // baseURL: `https://www.tekzobd.com/api`,
   withCredentials: true,

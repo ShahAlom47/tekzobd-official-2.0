@@ -32,9 +32,9 @@ const CategorySection = async ({ categories, fetchData }: CategoryPropsType) => 
   }
 
   return (
-    <section className="py-12 scroll-mt-20" id="categories">
-      <div className="max-w mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-        <HomeSecHeading>Explore Our Categories</HomeSecHeading>
+    <section className="py-12 scroll-mt-20 " id="categories">
+      <div className="max-w-screen-xl  px-4 sm:px-6 lg:px-8 space-y-6">
+        <HomeSecHeading align="left">Explore Our Categories</HomeSecHeading>
         <CategoryCarousel categories={categoriesData} />
       </div>
     </section>

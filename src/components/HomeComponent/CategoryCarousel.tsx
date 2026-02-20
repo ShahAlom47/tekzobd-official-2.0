@@ -49,7 +49,7 @@ const CategoryCarousel = ({ categories }: Props) => {
   return (
     <div
       ref={sliderRef}
-      className="keen-slider  p-3 "
+      className="keen-slider  p-3 max-w "
       onMouseEnter={() => setPause(true)}    // hover এ autoplay pause
       onMouseLeave={() => setPause(false)}   // mouse ছাড়লে autoplay চালু
     >
