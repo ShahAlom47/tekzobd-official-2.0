@@ -20,8 +20,11 @@ const CategoryCarousel = ({ categories }: Props) => {
       spacing: 15,
     },
     breakpoints: {
+      "(min-width: 440px)": {
+        slides: { perView: 1, spacing: 20 },
+      },
       "(min-width: 640px)": {
-        slides: { perView: 2.5, spacing: 20 },
+        slides: { perView: 2, spacing: 20 },
       },
       "(min-width: 1024px)": {
         slides: { perView: 4, spacing: 24 },
@@ -35,7 +38,7 @@ const CategoryCarousel = ({ categories }: Props) => {
   return (
     <div className="relative">
       {/* Slider */}
-      <div ref={sliderRef} className="keen-slider p-3">
+      <div ref={sliderRef} className="keen-slider p-3 bb">
         {categories.map((category) => (
           <div
             key={category._id ? category._id.toString() : category?.name}
