@@ -3,7 +3,7 @@
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { CategoryType } from "@/Interfaces/categoryInterfaces";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import HomeCategoryCard from "./HomeCategoryCard";
 
 type Props = {
@@ -11,12 +11,12 @@ type Props = {
 };
 
 const CategoryCarousel = ({ categories }: Props) => {
-  const [pause, setPause] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const [sliderRef, slider] = useKeenSlider({
-    loop: true,
+    loop: false, // simple carousel, no loop
     slides: {
-      perView: 1.5,
+      perView: 1.2,
       spacing: 15,
     },
     breakpoints: {
@@ -27,37 +27,44 @@ const CategoryCarousel = ({ categories }: Props) => {
         slides: { perView: 4, spacing: 24 },
       },
     },
-    dragSpeed: 1.2,
-    rubberband: true,
-    created() {
-      if (!pause) slider.current?.moveToIdx(0, true);
+    slideChanged(slider) {
+      setCurrentSlide(slider.track.details.rel);
     },
   });
 
-  // Autoplay effect
-  useEffect(() => {
-    if (!slider) return;
-    if (pause) return;
-
-    const interval = setInterval(() => {
-      slider.current?.next();
-    }, 3500);
-
-    return () => clearInterval(interval);
-  }, [slider, pause]);
-
   return (
-    <div
-      ref={sliderRef}
-      className="keen-slider  p-3 max-w "
-      onMouseEnter={() => setPause(true)}    // hover এ autoplay pause
-      onMouseLeave={() => setPause(false)}   // mouse ছাড়লে autoplay চালু
-    >
-      {categories.map((category) => (
-        <div key={category._id?category._id.toString():category?.name} className="keen-slider__slide">
-          <HomeCategoryCard category={category} />
-        </div>
-      ))}
+    <div className="relative">
+      {/* Slider */}
+      <div ref={sliderRef} className="keen-slider p-3">
+        {categories.map((category) => (
+          <div
+            key={category._id ? category._id.toString() : category?.name}
+            className="keen-slider__slide"
+          >
+            <HomeCategoryCard category={category} />
+          </div>
+        ))}
+      </div>
+
+      {/* Navigation Buttons */}
+      <button
+        onClick={() => slider.current?.prev()}
+        disabled={currentSlide === 0}
+        className="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow px-3 py-2 rounded-full"
+      >
+        ◀
+      </button>
+
+      <button
+        onClick={() => slider.current?.next()}
+        disabled={
+          currentSlide ===
+          (slider.current?.track.details.slides.length ?? 0) - 1
+        }
+        className="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow px-3 py-2 rounded-full"
+      >
+        ▶
+      </button>
     </div>
   );
 };
