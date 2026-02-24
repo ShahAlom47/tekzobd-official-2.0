@@ -9,7 +9,7 @@ type Props = {
 
 const CategoryGrid = ({ categories }: Props) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-4">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 p-4">
       {categories.map((category) => (
         <div
           key={category._id ? category._id.toString() : category?.name}
