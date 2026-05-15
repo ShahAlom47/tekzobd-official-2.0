@@ -35,7 +35,7 @@ const Register: React.FC = () => {
         toast.success(res.message || "Registration successful");
 
         // 2️⃣ auto login বাদ, verify page এ redirect
-        router.push("/verify-email");
+        router.push("/login");
       } else {
         toast.error(res.message || "Registration failed");
       }
@@ -104,6 +104,15 @@ const Register: React.FC = () => {
           })}
           error={errors.confirmPassword?.message}
         />
+        {/* Important Note */}
+<div className="w-full bg-yellow-50 border border-yellow-200 rounded-2xl p-3 text-xs text-yellow-800 leading-5">
+  <p>
+    ⚠️ Please enter your real and active email address carefully.
+    This email may be required later for password recovery,
+    account security, and other important account-related features.
+  </p>
+</div>
+
 
         <PrimaryButton type="submit" loading={isLoading} disabled={isLoading}>
           Register

@@ -18,13 +18,13 @@ const DashHeading = ({ navListOpen, setNavListOpen }: PropsType) => {
   const [searchOpen, setSearchOpen] = useState<boolean>(false);
   return (
     <div>
-      <div className=" flex gap-4 justify-between items-center  text-white px-4 pl-1 h-full">
+      <div className=" flex gap-4 justify-between items-center   px-4 pl-1 h-full">
         <div className=" flex justify-center items-center md:gap-2 ">
           <Logo></Logo>
         </div>
         <div className="flex-1   flex gap-3 items-center justify-between ">
           <button
-            className="text-2xl text-brandNeutral hover:text-brandPrimary transition-all duration-300 p-1"
+            className="text-2xl  text-brandNeutral hover:text-brandPrimary transition-all duration-300 p-1"
             onClick={() => setNavListOpen && setNavListOpen(!navListOpen)}
           >
             {navListOpen ? <AiOutlineMenuFold /> : <AiOutlineMenuUnfold />}

@@ -3,7 +3,6 @@ import GoogleProvider from "next-auth/providers/google";
 import bcrypt from "bcryptjs";
 import type { NextAuthOptions } from "next-auth";
 import { getUserCollection } from "@/lib/database/db_collections";
-import { sendVerificationEmail } from "@/utils/sendVerificationEmail";
 
 // Extend User, Session, JWT types
 declare module "next-auth" {
@@ -36,42 +35,45 @@ export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
+
       credentials: {
-        email: { label: "Email", type: "email", placeholder: "example@example.com" },
-        password: { label: "Password", type: "password" },
+        email: {
+          label: "Email",
+          type: "email",
+          placeholder: "example@example.com",
+        },
+
+        password: {
+          label: "Password",
+          type: "password",
+        },
       },
+
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
           throw new Error("Email and password are required.");
         }
-
+console.log(credentials)
         const usersCollection = await getUserCollection();
-        const existingUser = await usersCollection.findOne({ email: credentials.email });
-        if (!existingUser) throw new Error("No account found with this email.");
 
-        // ✅ Check email verification
-        if (!existingUser.verified) {
-          await sendVerificationEmail(existingUser.email, existingUser.name);
-          throw new Error("Your email is not verified. A new verification email has been sent.");
-        }
-// =============================
+        const existingUser = await usersCollection.findOne({
+          email: credentials.email,
+        });
 
-        if(credentials.password && credentials?.password==="for_emailVerification_only"){
-          // Special case for email verification only
-          return {
-            id: existingUser._id.toString(),
-            email: existingUser.email,
-            name: existingUser.name,
-            image: existingUser.image || null,
-            role: existingUser.role === "admin" ? "admin" : "user",
-          };
+        if (!existingUser) {
+          throw new Error("No account found with this email.");
         }
-// =============================
+
         const isValid = await bcrypt.compare(
           credentials.password,
-          typeof existingUser.password === "string" ? existingUser.password : ""
+          typeof existingUser.password === "string"
+            ? existingUser.password
+            : ""
         );
-        if (!isValid) throw new Error("Incorrect password. Please try again.");
+
+        if (!isValid) {
+          throw new Error("Incorrect password. Please try again.");
+        }
 
         return {
           id: existingUser._id.toString(),
@@ -89,7 +91,10 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
 
-  session: { strategy: "jwt", maxAge: 30 * 24 * 60 * 60 }, // 30 days
+  session: {
+    strategy: "jwt",
+    maxAge: 30 * 24 * 60 * 60,
+  },
 
   callbacks: {
     async signIn({ user, account }) {
@@ -100,7 +105,9 @@ export const authOptions: NextAuthOptions = {
           throw new Error("Google account does not have a valid email.");
         }
 
-        const existingUser = await usersCollection.findOne({ email: user.email });
+        const existingUser = await usersCollection.findOne({
+          email: user.email,
+        });
 
         if (!existingUser) {
           // Insert new user
@@ -110,7 +117,6 @@ export const authOptions: NextAuthOptions = {
             email: user.email,
             role: "user",
             image: user.image ?? null,
-            verified: true,
             createdAt: new Date().toISOString(),
           });
         } else {
@@ -121,12 +127,12 @@ export const authOptions: NextAuthOptions = {
               $set: {
                 name: user.name ?? existingUser.name,
                 image: user.image ?? existingUser.image ?? null,
-                verified: true,
               },
             }
           );
         }
       }
+
       return true;
     },
 
@@ -141,13 +147,18 @@ export const authOptions: NextAuthOptions = {
 
       if (token.email) {
         const usersCollection = await getUserCollection();
-        const dbUser = await usersCollection.findOne({ email: token.email });
+
+        const dbUser = await usersCollection.findOne({
+          email: token.email,
+        });
+
         if (dbUser) {
           token.name = dbUser.name;
           token.image = dbUser.image ?? null;
           token.role = dbUser.role;
         }
       }
+
       return token;
     },
 
@@ -155,8 +166,10 @@ export const authOptions: NextAuthOptions = {
       session.user.id = token.id as string;
       session.user.name = token.name ?? null;
       session.user.email = token.email ?? null;
-      session.user.role = token.role === "admin" ? "admin" : "user";
+      session.user.role =
+        token.role === "admin" ? "admin" : "user";
       session.user.image = token.image ?? null;
+
       return session;
     },
   },
@@ -170,8 +183,3 @@ export const authOptions: NextAuthOptions = {
 };
 
 export default authOptions;
-
-
-
-
-

@@ -46,6 +46,7 @@ const Login: React.FC = () => {
         email: data.email,
         password: data.password,
       });
+      console.log(res)
 
       if (res?.ok) {
         router.push(redirectPath);
